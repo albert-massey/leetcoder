@@ -19,12 +19,11 @@ class Solution {
         dfs(root);
         return result;
     }
-    private List<Integer> dfs(TreeNode root) {
-        if(root == null) return result;
+    private void dfs(TreeNode root) {
+        if(root == null) return;
         
         inorderTraversal(root.left);
         result.add(root.val);
         inorderTraversal(root.right);
-        return result;
     }
 }
