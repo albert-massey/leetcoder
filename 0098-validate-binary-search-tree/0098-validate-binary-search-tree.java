@@ -25,9 +25,8 @@ class Solution {
         //base
         if(root == null) return;
 
-        //logic
+        //logic 
         inorder(root.left);
-        // TreeNode curr = root;
         if (prev != null && prev.val >= root.val) {
             flag = false;
         }
