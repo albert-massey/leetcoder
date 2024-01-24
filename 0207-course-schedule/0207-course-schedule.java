@@ -24,7 +24,7 @@ class Solution {
             }
         }
         if (q.isEmpty()) return false;
-        int count = q.size();
+        // int count = q.size();
         while(!q.isEmpty()) {
             int curr = q.poll();
             if(map.containsKey(curr)) {
@@ -32,12 +32,12 @@ class Solution {
                     indegrees[entry]--;
                     if (indegrees[entry] == 0) {
                         q.add(entry);
-                        count++;
+                        // count++;
                     }
                 }                 
             }
 
-            if(count == numCourses) return true; 
+            // if(count == numCourses) return true; 
 
         }
         for (int i = 0; i < indegrees.length; i++) {
