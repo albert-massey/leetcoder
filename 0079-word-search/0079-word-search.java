@@ -25,7 +25,6 @@ class Solution {
         }
         
         //logic
-        
         for (int[] dir: dirs) {
             int nr = r + dir[0];
             int nc = c + dir[1];
