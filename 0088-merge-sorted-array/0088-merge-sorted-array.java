@@ -10,18 +10,14 @@ class Solution {
             } else {
                 nums1[i] = nums2[p2];
                 i--; p2--;
-            }            
-            // if(nums1[p1] == nums2[p2]) {
-            //     // nums1[i] = nums2[p2];
-            //     i--; p2--;
-            // }
+            }
         }
-        // if(p1 < 0) {
+        if(p1 < 0) {
             while(p2 >= 0) {
                 nums1[i] = nums2[p2];
                 i--; p2--;
             }
-        // }
+        }
         
     }
 }
