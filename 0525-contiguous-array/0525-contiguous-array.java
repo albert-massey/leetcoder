@@ -9,10 +9,8 @@ class Solution {
         for(int i= 0; i < nums.length; i++) {
             if(nums[i] == 0) {
                 sum--;
-                // rSum[i] = sum;
             } else {
                 sum++;
-                // rSum[i] = sum;            
             }
             if(!map.containsKey(sum)) {
                 map.put(sum, i);
@@ -21,9 +19,7 @@ class Solution {
                 int diff = i - map.get(sum);
                 max = Math.max(max, diff);
             }
-        } 
-        System.out.println(rSum);
-              
+        }               
         return max;
     }
 }
