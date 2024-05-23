@@ -9,22 +9,21 @@ class Solution {
         for(int i= 0; i < nums.length; i++) {
             if(nums[i] == 0) {
                 sum--;
-                rSum[i] = sum;
+                // rSum[i] = sum;
             } else {
                 sum++;
-                rSum[i] = sum;            
+                // rSum[i] = sum;            
             }
-            if(!map.containsKey(rSum[i])) {
-                map.put(rSum[i], i);
+            if(!map.containsKey(sum)) {
+                map.put(sum, i);
+            }
+            if(map.containsKey(sum)) {
+                int diff = i - map.get(sum);
+                max = Math.max(max, diff);
             }
         } 
         System.out.println(rSum);
-        for(int i= 1; i < rSum.length; i++) {
-            if(map.containsKey(rSum[i])) {
-                int diff = i - map.get(rSum[i]);
-                max = Math.max(max, diff);
-            }
-        }        
+              
         return max;
     }
 }
