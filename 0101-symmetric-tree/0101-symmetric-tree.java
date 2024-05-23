@@ -25,15 +25,15 @@ class Solution {
         if(left == null && right == null) return; 
         
         //logic
-        if(left == null || right == null) {
+        if(left == null || right == null || left.val != right.val) {
             flag = false;
             return;
         }
         helper(left.left, right.right);
-            if(left.val != right.val) {
-            flag = false;
-            return;
-        }
+        //     if(left.val != right.val) {
+        //     flag = false;
+        //     return;
+        // }
         helper(left.right, right.left);
     }
 }
