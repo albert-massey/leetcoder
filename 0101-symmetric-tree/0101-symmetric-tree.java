@@ -30,10 +30,6 @@ class Solution {
             return;
         }
         helper(left.left, right.right);
-        //     if(left.val != right.val) {
-        //     flag = false;
-        //     return;
-        // }
         helper(left.right, right.left);
     }
 }
