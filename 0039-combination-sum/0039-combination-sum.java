@@ -17,7 +17,7 @@ class Solution {
         
         for(int i = pivot; i < candidates.length; i++) {
             path.add(candidates[i]);
-            helper(candidates, target - candidates[i], i, new ArrayList<>(path));
+            helper(candidates, target - candidates[i], i, path);
             path.remove(path.size() -1);
         }
     }
