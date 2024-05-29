@@ -1,26 +1,24 @@
 class Solution {
-    List<List<Integer>> result = new ArrayList<>();
+    List<List<Integer>> result;
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        if(candidates.length == 0 || candidates == null) return result;
-        helper(candidates, target, new ArrayList<>(), 0);
+        result = new ArrayList<>();
+        helper(candidates, target, 0, new ArrayList<>());
         return result;
+        
     }
-    private void helper(int[] candidates, int target, List<Integer> path, int idx) {
+    
+    private void helper(int[] candidates, int target, int pivot, List<Integer> path) {
         //base
+        if(target < 0 || pivot == candidates.length) return;
         if(target == 0) {
             result.add(new ArrayList<>(path));
             return;
-        };
-        if (target < 0 || idx == candidates.length) return;
+        }
         
-        //logic
-        //not choose
-        helper(candidates, target, path, idx+1);
-        
-        //choose
-        path.add(candidates[idx]);
-        helper(candidates, target-candidates[idx], path, idx);
-        path.remove(path.size() - 1);
-
+        for(int i = pivot; i < candidates.length; i++) {
+            path.add(candidates[i]);
+            helper(candidates, target - candidates[i], i, new ArrayList<>(path));
+            path.remove(path.size() -1);
+        }
     }
 }
