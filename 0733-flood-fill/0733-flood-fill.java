@@ -14,7 +14,7 @@ class Solution {
         for(int[] dir: dirs) {
             int nr = dir[0] + r;
             int nc = dir[1] + c;
-            if(nr >= 0 && nc >= 0 && nr < image.length && nc < image[0].length && image[nr][nc] != color && image[nr][nc] == orgColor  && image[nr][nc] != color)
+            if(nr >= 0 && nc >= 0 && nr < image.length && nc < image[0].length && image[nr][nc] != color && image[nr][nc] == orgColor)
             dfs(image, nr, nc, color, orgColor);
         }
         return image;
