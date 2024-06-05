@@ -31,20 +31,20 @@
 
 
 class Solution {
-    // char[][] grider;
+    char[][] grider;
     int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     public int numIslands(char[][] grid) {
-        // this.grider = grid;
+        this.grider = grid;
         int count = 1;
         int m = grid.length;
         int n = grid[0].length;
         
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
-                char c = grid[i][j];
+                char c = grider[i][j];
                 if(c == '1') {
                     count++;
-                    dfs(grid, i, j, count);
+                    dfs(grider, i, j, count);
                 }
             }
         }
