@@ -56,11 +56,11 @@ class Solution {
         if(i >= grider.length || i < 0 || j >= grider[0].length || j < 0 || grider[i][j] != '1') return;
         
         //logic
-        grider[i][j] = 'A';
+        grider[i][j] = '0';
         for(int[] dir: dirs) {
-            int nr = dir[0] + i;
-            int nc = dir[1] + j;
-            dfs(grider, nr, nc, count);
+            // int nr = dir[0] + i;
+            // int nc = dir[1] + j;
+            dfs(grider, dir[0] + i, dir[1] + j, count);
         }
     }
 }
