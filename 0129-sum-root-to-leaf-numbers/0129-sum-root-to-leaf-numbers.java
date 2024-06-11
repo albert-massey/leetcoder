@@ -40,10 +40,10 @@ class Solution {
         return globalSum;
     }
     private void inorder(TreeNode root, int currNum) {
-        //
+        //base 
         if(root == null) return;
 
-        //
+        //logic
         currNum = currNum * 10 + root.val;
         inorder(root.left, currNum);
         if(root.left == null && root.right == null) {
