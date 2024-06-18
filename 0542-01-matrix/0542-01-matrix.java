@@ -5,15 +5,19 @@ class Solution {
         int m=matrix.length;
         int n=matrix[0].length;
          
-        for(int i = 0; i<m; i++)
-            for(int j = 0; j<n; j++)
+        for(int i = 0; i<m; i++) {
+            for(int j = 0; j<n; j++) {
                 if(matrix[i][j]==1 &&!hasNeiberZero(i, j,matrix)) 
                     matrix[i][j] = Integer.MAX_VALUE;
+            }
+        }
         
-        for(int i = 0; i<matrix.length; i++)
-            for(int j = 0; j<matrix[0].length; j++)
+        for(int i = 0; i<matrix.length; i++) {
+            for(int j = 0; j<matrix[0].length; j++) {
                 if(matrix[i][j]==1)
                     dfs(matrix, i, j, -1);
+            }
+        }
         
         return matrix;
     }
