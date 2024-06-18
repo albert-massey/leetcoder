@@ -1,46 +1,34 @@
 class Solution {
-    int[][] dirs={{0,1},{0,-1},{1,0},{-1,0}};
-     public int[][] updateMatrix(int[][] matrix) {
-        if(matrix.length==0) return matrix;
-        int m=matrix.length;
-        int n=matrix[0].length;
-         
-        for(int i = 0; i<m; i++) {
-            for(int j = 0; j<n; j++) {
-                if(matrix[i][j]==1 &&!hasNeiberZero(i, j,matrix)) 
-                    matrix[i][j] = Integer.MAX_VALUE;
+    int[][] dirs = {{0,1}, {1, 0}, {0, -1}, {-1, 0}};
+    public int[][] updateMatrix(int[][] mat) {
+        int m = mat.length;
+        int n = mat[0].length;
+        Queue<int[]> q = new LinkedList<>();
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(mat[i][j] == 0) {
+                    q.add(new int[]{i , j});
+                } else {
+                    mat[i][j] = -1;
+                }
             }
         }
-        
-        for(int i = 0; i<matrix.length; i++) {
-            for(int j = 0; j<matrix[0].length; j++) {
-                if(matrix[i][j]==1)
-                    dfs(matrix, i, j, 0);
+        int level = 1;        
+        while(!q.isEmpty()) {
+            int size = q.size();
+            for(int i = 0; i < size; i++) {
+                int[] curr = q.poll();
+                for(int[] dir: dirs) {
+                    int r = curr[0] + dir[0];
+                    int c = curr[1] + dir[1];
+                    if(r >= 0 && c >= 0 && r < m && c < n && mat[r][c] == -1) {
+                        mat[r][c] = level;
+                        q.add(new int[]{r,c});
+                    }
+                 }
             }
+            level++;
         }
-        
-        return matrix;
-    }
-    private void dfs(int[][] matrix, int x, int y, int val){
-        if(x<0||y<0||y>=matrix[0].length||x>=matrix.length||matrix[x][y]<=val)
-            return;        
-        if(val>0) matrix[x][y] = val;
-        for(int[] dir: dirs){
-            int x1=x+dir[0];
-            int y1=y+dir[1];
-            dfs(matrix,x1,y1,matrix[x][y]+1);
-        }
-    }
-    private boolean hasNeiberZero(int x, int y, int[][] matrix){
-        int m=matrix.length;
-        int n=matrix[0].length;
-        for (int[] dir:dirs){
-            int x1=x+dir[0];
-            int y1=y+dir[1];
-            if (x1>=0 && x1<m && y1>=0 && y1<n && matrix[x1][y1]==0){
-                return true;
-            }
-        }
-        return false;
+        return mat;
     }
 }
