@@ -14,11 +14,11 @@ class Solution {
         if(target < 0 || idx == candidates.length) return;
         
         //logic
-        helper(candidates, target, idx+1, path, result);
         
         path.add(candidates[idx]);
         helper(candidates, target-candidates[idx], idx, path, result);
         path.remove(path.size()-1);
+        helper(candidates, target, idx+1, path, result);
         
     }
     
