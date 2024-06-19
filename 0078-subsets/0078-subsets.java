@@ -4,7 +4,6 @@ class Solution {
         result = new ArrayList<>();
         helper(nums, 0, new ArrayList<>());
         return result;
-        
     }
     
     private void helper(int[] nums, int pivot, List<Integer> path) {
