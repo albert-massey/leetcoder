@@ -17,7 +17,6 @@ class Solution {
         //logic
         result.add(new ArrayList<>(path));
         for(int i = pivot; i < nums.length; i++) {
-            
             path.add(nums[i]);
             helper(nums, i+1, path);
             path.remove(path.size()-1);
