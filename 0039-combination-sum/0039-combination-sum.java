@@ -4,7 +4,6 @@ class Solution {
         result = new ArrayList<>();
         helper(candidates, target, 0, new ArrayList<>());
         return result;
-        
     }
     private void helper(int[] candidates, int target, int pivot, List<Integer> path) {
         //base
@@ -16,7 +15,6 @@ class Solution {
         
         //logic
         for(int i = pivot; i < candidates.length; i++) {
-            
             path.add(candidates[i]);
             helper(candidates, target-candidates[i], i, path);
             path.remove(path.size()-1);
