@@ -18,6 +18,6 @@ class Solution {
                 idx = (idx + 1) % 4;
             }
         }
-        return (x == 0 && y == 0) || idx != 0;
+        return  idx != 0 || (x == 0 && y == 0);
     }
 }
