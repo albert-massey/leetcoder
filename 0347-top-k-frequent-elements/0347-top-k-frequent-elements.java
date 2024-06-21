@@ -22,23 +22,11 @@ class Solution {
         
         for(Map.Entry<Integer, Integer> entry: map.entrySet()) {
             Pair pr = new Pair(entry.getKey(), entry.getValue());
-        // System.out.println();
             pq.add(pr);
             if(pq.size() > k) {
                 pq.poll();
             } 
         }
-                    // System.out.println("size: "+pq.size());
-
-        // map.forEach((key, value) -> System.out.printf("%-15s : %s%n", key, value));
-
-        // while(!pq.isEmpty()){
-        //     Pair prr = pq.poll();
-        //     System.out.println("size: "+pq.size());
-        //     System.out.println(prr.num + " "+prr.freq);
-        //     result[i] = prr.num;
-        //     i++;
-        // }
         for(int i = k - 1; i >=0; i--) {
             Pair prr = pq.poll();
             result[i] = prr.num;
