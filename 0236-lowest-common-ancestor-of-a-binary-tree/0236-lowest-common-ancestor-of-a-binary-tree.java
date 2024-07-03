@@ -28,14 +28,14 @@ class Solution {
         
         path.add(root);
         //logic
+        inorder(root.left, p, q, path);
+        inorder(root.right, p, q, path);
         if(root.val == p.val) {
             pathP = new ArrayList<>(path);
         }
         if(root.val == q.val) {
             pathQ = new ArrayList<>(path);
         }
-        inorder(root.left, p, q, path);
-        inorder(root.right, p, q, path);
         path.remove(path.size()-1);
     }
 }
