@@ -14,8 +14,8 @@ class LRUCache {
     public LRUCache(int capacity) {
         this.head = new Node(-1, -1);
         this.tail = new Node(-1, -1);
-        head.next = tail;
-        tail.prev = head;
+        this.head.next = tail;
+        this.tail.prev = head;
         this.capacity = capacity; 
     }
     
