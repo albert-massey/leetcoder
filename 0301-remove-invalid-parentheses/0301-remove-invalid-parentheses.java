@@ -25,12 +25,6 @@ class Solution {
                 }
             }
         }
-        if(result.size() == 0) {
-            result.add("");
-        }
-        if(s.length() == 0) {
-            result.add("");
-        }
         return result;
     }
     
