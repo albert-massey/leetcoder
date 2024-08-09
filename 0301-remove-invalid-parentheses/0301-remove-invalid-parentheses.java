@@ -5,12 +5,14 @@ class Solution {
         HashSet<String> set = new HashSet<>();
         q.add(s);
         boolean found = false;
-        while(!q.isEmpty()) {
-            for(int j = 0; j < q.size(); j++) {
+        while(!q.isEmpty() && !found) {
+            int size = q.size();
+            for(int j = 0; j < size; j++) {
                 String currStr = q.poll();
                 if(isValid(currStr)) {
                     found = true;
                     result.add(currStr);
+            
                 }
                 if(!found) {
                     for(int i = 0; i < currStr.length(); i++) {
@@ -18,9 +20,9 @@ class Solution {
                         if(!Character.isAlphabetic(c)) {
                             String childStr = currStr.substring(0, i) + currStr.substring(i+1);
                             if(!set.contains(childStr)) {
-                                set.add(childStr); q.add(childStr);
-                            }
-                        }
+                                q.add(childStr); set.add(childStr);
+                            } 
+                        }      
                     }
                 }
             }
@@ -32,12 +34,13 @@ class Solution {
         int count = 0;
         for(int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
+            if(Character.isAlphabetic(c)) continue;
             if(c == '(') {
                 count++;
             } else if(c == ')') {
+                if(count == 0) return false;
                 count--;
             }
-            if(count < 0) return false;
         }
         return count == 0;
     }
