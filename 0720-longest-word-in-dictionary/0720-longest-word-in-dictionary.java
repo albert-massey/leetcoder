@@ -45,7 +45,7 @@ class Solution {
         // String result = "";
         // for(String word: words) {
         //     trie.insert(word);
-        //     if(trie.canBeBuilt(word) && (result.length() < word.length() || word.compareTo(result) < 0)) result = word;
+        //     if(trie.canBeBuilt(word) && (result.length() < word.length() || (word.length() == longestWord.length() && word.compareTo(result) < 0))) result = word;
         // }
         
                 // Insert all words into the Trie
