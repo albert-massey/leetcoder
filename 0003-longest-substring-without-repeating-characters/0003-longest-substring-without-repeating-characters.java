@@ -4,7 +4,7 @@ class Solution {
         int i = 0;
         int j = 0;
         int max = 0;
-        while (i < s.length() && j < s.length()) {
+        while (j < s.length()) {
             char c  = s.charAt(j);
             if(!set.contains(c)) {
                 set.add(c);
