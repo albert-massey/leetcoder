@@ -1,9 +1,4 @@
 class Solution {
-    ////////////////
-    //      i
-    // abcabcbbqwerty
-    //       j 
-           //b q w e r t y 
     public int lengthOfLongestSubstring(String s) {
         HashSet<Character> set = new HashSet<>();
         int i = 0;
