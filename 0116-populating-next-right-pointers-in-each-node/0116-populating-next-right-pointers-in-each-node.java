@@ -30,14 +30,14 @@ class Solution {
             int size = q.size();
             for(int i = 0; i < size; i++) {
                 Node curr = q.poll();
-                if(i != size - 1) {
-                    curr.next = q.peek();
-                }
                 if(curr.left != null) {
                     q.add(curr.left);
                 }
                 if(curr.right != null) {
                     q.add(curr.right);
+                }
+                if(i != size - 1) {
+                    curr.next = q.peek();
                 }
             }
         }
