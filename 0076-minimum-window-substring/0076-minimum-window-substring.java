@@ -42,7 +42,7 @@ class Solution {
 
                 // Remove the leftmost character from the window
                 windowCounts.put(c, windowCounts.get(c) - 1);
-                if (tMap.containsKey(c) && windowCounts.get(c).intValue() < tMap.get(c).intValue()) {
+                if (tMap.containsKey(c) && windowCounts.get(c) < tMap.get(c)) {
                     formed--;
                 }
 
