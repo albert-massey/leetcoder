@@ -1,3 +1,12 @@
+/*
+Time O(m x n)
+space O(1)
+Check the starting point if it's a mine, if so return right away else
+Do BFS
+Check the neighbors if they are not mines('E'), add them to the queue for processing,
+if they are mines update the value to #mines
+*/
+
 class Solution {
     int[][] dirs = {{0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1}, {-1, 0}, {-1, 1}};
     int m = 0;
@@ -20,6 +29,9 @@ class Solution {
                 int mines = countMines(board, curr[0], curr[1]);
                 if(mines != 0) {
                     board[curr[0]][curr[1]] = (char) (mines + '0');
+                    System.out.println("mines:" + mines);
+                    System.out.println("mines'ascii':" + mines + '0');
+                    System.out.println("mines'char':" + (char) (mines + '0'));
                 } else{
                     for(int[] dir: dirs) {
                         int nr = dir[0] + curr[0];
