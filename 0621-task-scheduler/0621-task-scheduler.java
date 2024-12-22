@@ -15,10 +15,10 @@ class Solution {
         int maxFreq = -1;
         for(char task: tasks) {
             map.put(task, map.getOrDefault(task, 0) + 1);
-            // if(maxFreq < map.get(task)) {
-            //     maxFreq = map.get(task);
-            // }
-            maxFreq = Math.max(maxFreq, map.get(task));
+            if(maxFreq < map.get(task)) {
+                maxFreq = map.get(task);
+            }
+            // maxFreq = Math.max(maxFreq, map.get(task));
         }
         
         for(Map.Entry<Character, Integer> entry: map.entrySet()) {
